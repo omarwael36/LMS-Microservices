@@ -4,6 +4,8 @@ import com.example.user_servicer.Models.Instructor;
 import com.example.user_servicer.Models.Student;
 import com.example.user_servicer.Models.User;
 import com.example.user_servicer.Services.UserService;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -35,7 +37,7 @@ public class UserController {
 
     @POST
     @Path("/UserLogin")
-    public int UserSignIn(User user) throws SQLException {
+    public String UserSignIn(User user) throws SQLException, JSONException {
         return userService.UserLogin(user);
     }
 
