@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.List;
+
 @Data
 @Document("course")
 @AllArgsConstructor
@@ -24,6 +26,7 @@ public class Course {
     private String courseCategory;
     private int courseCapacity;
     private int courseEnrolled;
-    private String courseInstructor;
-
+    private Instructor instructor;
+    private List<Review> reviews;
+    private boolean coursePublished;
 }

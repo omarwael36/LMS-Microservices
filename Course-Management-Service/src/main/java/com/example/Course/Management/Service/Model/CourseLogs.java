@@ -7,17 +7,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.time.LocalDateTime;
+
+@Data
+@Document("course_logs")
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@Data
-@Document("ratings")
-public class Rating {
-    @MongoId(FieldType.OBJECT_ID)
+public class CourseLogs {
     @Id
-    private String ratingId;
-    private String courseId;
-    private int studentId;
-    private double rating;
+    @MongoId(FieldType.OBJECT_ID)
+    private String logId;
+    private String name;
+    private String role;
+    private LocalDateTime timeStamp;
+    private String action;
+
 }
