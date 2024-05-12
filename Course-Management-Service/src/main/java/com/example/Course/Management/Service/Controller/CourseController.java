@@ -33,9 +33,9 @@ public class CourseController {
         return courseService.viewAllCourses(userName, userRole);
     }
 
-    @GetMapping("/SearchCoursesByName")
-    public List<Course> searchCoursesByName(@RequestParam String courseName, @RequestParam String userName, @RequestParam String userRole) {
-        return courseService.searchCoursesByName(courseName, userName, userRole);
+    @GetMapping("/SearchCoursesByFilter")
+    public List<Course> searchCoursesByName(@RequestParam String key, @RequestParam String value, @RequestParam String userName, @RequestParam String userRole) {
+        return courseService.searchCoursesByName(key, value, userName, userRole);
     }
 
     @GetMapping("/SortCoursesByRating")

@@ -11,4 +11,5 @@ public interface CourseRepository extends MongoRepository<Course, String> {
     public Course findCoursesByCourseNameAndInstructor_Name(String courseName, String instructorName);
     public Course findCourseByCourseName( String courseName);
     public List<Course> findCoursesByCoursePublished(boolean coursePublished);
+    public List<Course> findCoursesByCourseCategoryContainingIgnoreCase( String courseCategory);
 }

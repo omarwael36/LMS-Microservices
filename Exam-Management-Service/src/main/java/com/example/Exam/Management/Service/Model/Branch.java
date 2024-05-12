@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Branch {
-    private String branchLocation;
     private String branchName;
+    private String branchLocation;
     private String branchAddress;
     private List<ExamDate> examDates;
 }

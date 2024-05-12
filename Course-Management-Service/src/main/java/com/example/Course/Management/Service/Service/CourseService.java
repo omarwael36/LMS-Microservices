@@ -63,20 +63,24 @@ public class CourseService {
         return courses;
     }
 
-    public List<Course> searchCoursesByName(String courseName, String userName, String userRole) {
+    public List<Course> searchCoursesByName(String key, String value, String userName, String userRole) {
         CourseLogs courseLogs = new CourseLogs();
         courseLogs.setName(userName);
         courseLogs.setRole(userRole);
         courseLogs.setTimeStamp(LocalDateTime.now());
-        courseLogs.setAction("Searched for courses by name");
+        courseLogs.setAction("Searched for courses by " + key);
         courseLogsRepository.save(courseLogs);
-        List<Course> courses = courseRepository.findCoursesByCourseNameContainingIgnoreCase(courseName);
-        for (int i = 0; i < courses.size(); i++) {
-            if(!courses.get(i).isCoursePublished()) {
-                courses.remove(i);
-                i--;
-            }
+
+        List<Course> courses;
+        if ("name".equalsIgnoreCase(key)) {
+            courses = courseRepository.findCoursesByCourseNameContainingIgnoreCase(value);
+        } else if ("category".equalsIgnoreCase(key)) {
+            courses = courseRepository.findCoursesByCourseCategoryContainingIgnoreCase(value);
+        } else {
+            return List.of();
         }
+        courses.removeIf(course -> !course.isCoursePublished());
+
         return courses;
     }
 

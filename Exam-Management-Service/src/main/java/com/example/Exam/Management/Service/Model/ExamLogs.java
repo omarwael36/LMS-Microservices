@@ -1,25 +1,25 @@
 package com.example.Exam.Management.Service.Model;
 
-
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Data
-@Document("test_center")
-@NoArgsConstructor
-@AllArgsConstructor
+@Document("exam_logs")
 @Setter
 @Getter
-public class TestCenter {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ExamLogs {
     @Id
     @MongoId(FieldType.OBJECT_ID)
-    private String testCenterId;
-    private String testCenterName;
-    private List<Branch> branches;
-    private String bio;
+    private String logId;
+    private String name;
+    private String role;
+    private LocalDateTime timeStamp;
+    private String action;
 }
