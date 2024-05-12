@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface TestCenterRepository extends MongoRepository<TestCenter, String> {
 
     TestCenter findTestCenterByTestCenterName(String testCenterName);
-    Optional<TestCenter> findByBranches_BranchName(String branchName);
+    TestCenter findByBranches_BranchName(String branchName);
 }
