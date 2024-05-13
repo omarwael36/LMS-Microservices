@@ -1,30 +1,37 @@
 package com.example.enrollmentservice.Controller;
 
-import javax.ejb.ActivationConfigProperty;
-import javax.ejb.MessageDriven;
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.TextMessage;
 
-@MessageDriven(name = "InstructorController", activationConfig = {
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:/queue/queuename"),
-        @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")
-})
-public class InstructorController implements MessageListener {
+import com.example.enrollmentservice.Model.EnrollmentRequest;
+import com.example.enrollmentservice.Service.InstructorService;
 
-    @Override
-    public void onMessage(Message message) {
-        // Handle incoming messages here
-        try {
-            if (message instanceof TextMessage) {
-                TextMessage textMessage = (TextMessage) message;
-                String text = textMessage.getText();
-                System.out.println("Received message: " + text);
-                // Process the message as needed
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to process message: " + e.getMessage(), e);
-        }
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.sql.SQLException;
+import java.util.List;
+
+@Path("/instructor")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public class InstructorController {
+    InstructorService instructorService = new InstructorService();
+
+    public InstructorController() {
+    }
+
+    public InstructorController(InstructorService instructorService) {
+        this.instructorService = instructorService;
+    }
+
+    @PUT
+    @Path("/ManageEnrollments")
+    public Response ManageEnrollments(@QueryParam("EnrollmentID") int EnrollmentID,@QueryParam("action") String action) throws SQLException {
+        return instructorService.ManageEnrollments(EnrollmentID, action);
+    }
+
+    @GET
+    @Path("/GetEnrollRequests")
+    public List<EnrollmentRequest> GetEnrollRequests() throws SQLException {
+        return instructorService.getEnrollRequests();
     }
 }

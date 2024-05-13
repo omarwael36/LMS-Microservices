@@ -11,20 +11,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ff84d96-d026-4959-946b-08622382ffce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Enrollment_Service_war_exploded2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/InstructorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exam-Management-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Exam-Management-Service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exam-Management-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Exam-Management-Service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../User_Servicer/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User_Servicer/.idea/cody_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../User_Servicer/out/artifacts/User_Servicer_war_exploded2/WEB-INF/classes/com/example/user_servicer/DBConnection/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../User_Servicer/out/artifacts/User_Servicer_war_exploded2/WEB-INF/classes/com/example/user_servicer/DBConnection/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../User_Servicer/out/artifacts/User_Servicer_war_exploded2/WEB-INF/classes/com/example/user_servicer/Services/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../User_Servicer/out/artifacts/User_Servicer_war_exploded2/WEB-INF/classes/com/example/user_servicer/Services/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../User_Servicer/src/main/java/com/example/user_servicer/DBConnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User_Servicer/src/main/java/com/example/user_servicer/DBConnection/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../User_Servicer/src/main/java/com/example/user_servicer/Services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User_Servicer/src/main/java/com/example/user_servicer/Services/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Enrollment_Service_war_exploded2/WEB-INF/classes/com/example/enrollmentservice/InstructorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Enrollment_Service_war_exploded2/WEB-INF/classes/com/example/enrollmentservice/StudentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/InstructorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/InstructorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/DBConnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/DBConnection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/EnrollmentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/EnrollmentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/InstructorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/InstructorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/InstructorSignUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/StudentSignUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/UserSignUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +65,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -55,10 +76,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2gPwpXGUioRt28tpYq0DQL49Rhs" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -75,6 +96,7 @@
     "RunOnceActivity.CodyHistoryLlmMigration": "true",
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -86,6 +108,11 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager">
@@ -182,6 +209,7 @@
       <option name="presentableId" value="Default" />
       <updated>1715612706901</updated>
       <workItem from="1715612708028" duration="2994000" />
+      <workItem from="1715618374123" duration="17208000" />
     </task>
     <servers />
   </component>
