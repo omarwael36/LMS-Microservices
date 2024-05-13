@@ -4,6 +4,7 @@ import com.example.user_servicer.DBConnection.DBConnection;
 import com.example.user_servicer.Models.AdminResponse;
 import com.example.user_servicer.Models.User;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.security.SecureRandom;
 import java.sql.Connection;
@@ -19,7 +20,8 @@ public class AdminService {
     public AdminService() {
     }
 
-
+    @EJB
+    private DBConnection connection;
     public int AdminGenerateCenterCredentials(String centername) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
