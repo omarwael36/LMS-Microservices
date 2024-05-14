@@ -11,41 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ff84d96-d026-4959-946b-08622382ffce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Enrollment_Service_war_exploded2/WEB-INF/classes/com/example/enrollmentservice/InstructorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Enrollment_Service_war_exploded2/WEB-INF/classes/com/example/enrollmentservice/StudentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/InstructorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/InstructorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/DBConnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/DBConnection/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/EnrollmentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/EnrollmentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Model/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/InstructorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/InstructorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/enrollmentservice/Service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/InstructorSignUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/StudentSignUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/UserSignUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend-React/my-online-learning-app/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,33 +54,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JBoss/WildFly Server.JBoss/WildFly 14.0.11.Final-redhat-00001.executor": "Run",
-    "RunOnceActivity.CodyAccountHistoryMigration": "true",
-    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
-    "RunOnceActivity.CodyHistoryLlmMigration": "true",
-    "RunOnceActivity.CodyProjectSettingsMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JBoss/WildFly Server.JBoss/WildFly 14.0.11.Final-redhat-00001.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.CodyAccountHistoryMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.CodyConvertUrlToCodebaseName&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.CodyHistoryLlmMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.CodyProjectSettingsMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="JBoss/WildFly 14.0.11.Final-redhat-00001" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 14.0.11.Final-redhat-00001" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Enrollment-Service" />
@@ -209,7 +175,8 @@
       <option name="presentableId" value="Default" />
       <updated>1715612706901</updated>
       <workItem from="1715612708028" duration="2994000" />
-      <workItem from="1715618374123" duration="17208000" />
+      <workItem from="1715618374123" duration="19139000" />
+      <workItem from="1715683944835" duration="15000" />
     </task>
     <servers />
   </component>
