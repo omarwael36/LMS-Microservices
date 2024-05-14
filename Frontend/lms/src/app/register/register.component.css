@@ -1,0 +1,93 @@
+.wallpaper {
+  background-image: url('https://img.freepik.com/free-photo/top-view-education-day-elements-with-copy-space_23-2148721223.jpg?w=1060&t=st=1715693714~exp=1715694314~hmac=85160894e4280296287ac453b2001a7d11172d2179d462b8c59f9a1b4e62abd5');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0; 
+
+  
+}
+
+.overlay {
+  margin: 0;
+  padding: 0; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.208);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .form-group {
+    width: 100%; 
+    margin-bottom: 20px;
+  }
+  
+  .form{
+    width: 80%;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Disable button when form is invalid */
+  .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
