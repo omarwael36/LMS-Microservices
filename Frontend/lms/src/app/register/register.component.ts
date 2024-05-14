@@ -20,12 +20,11 @@ export class RegisterComponent {
     this.password = '';
     this.affiliation = '';
     this.bio = '';
-    this.role = 'student'; // Default role
+    this.role = 'student';
     this.yearsOfExperience = 0;
   }
 
   register() {
-    // Here you can implement your registration logic
     console.log('Register button clicked');
     console.log('Name:', this.name);
     console.log('Email:', this.email);
@@ -36,6 +35,5 @@ export class RegisterComponent {
     if (this.role === 'instructor') {
       console.log('Years of Experience:', this.yearsOfExperience);
     }
-    // Example: You can send a request to a server to register the user
   }
 }

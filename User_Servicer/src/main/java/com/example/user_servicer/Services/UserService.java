@@ -70,7 +70,11 @@ public class UserService {
 
         try {
             connection = DBConnection.getConnection();
-            String sql = "SELECT u.UserID, u.Role, i.Name AS InstructorName, s.Name AS StudentName FROM user u LEFT JOIN instructor i ON u.UserID = i.UserID LEFT JOIN student s ON u.UserID = s.UserID WHERE u.Email = ? AND u.Password = ?";
+            String sql = "SELECT u.UserID, u.Role, i.Name AS InstructorName, s.Name AS StudentName " +
+                    "FROM user u " +
+                    "LEFT JOIN instructor i ON u.UserID = i.UserID " +
+                    "LEFT JOIN student s ON u.UserID = s.UserID " +
+                    "WHERE u.Email = ? AND u.Password = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getPassword());
@@ -80,13 +84,19 @@ public class UserService {
                 String role = resultSet.getString("Role");
                 String name;
 
-                // Determine the user's name based on their role
-                if (role.equals("instructor")) {
-                    name = resultSet.getString("InstructorName");
-                } else if (role.equals("student")) {
-                    name = resultSet.getString("StudentName");
+                if (role.equals("admin")) {
+                    name = "Admin";
+                } else if (role.equals("center")) {
+                    String email = user.getEmail();
+                    name = email.substring(0, email.indexOf('@'));
                 } else {
-                    return null;
+                    if (role.equals("instructor")) {
+                        name = resultSet.getString("InstructorName");
+                    } else if (role.equals("student")) {
+                        name = resultSet.getString("StudentName");
+                    } else {
+                        return null;
+                    }
                 }
 
                 JSONObject jsonObject = new JSONObject();
@@ -94,9 +104,9 @@ public class UserService {
                 jsonObject.put("Role", role);
                 jsonObject.put("Name", name);
 
-                return jsonObject.toString(); // Convert JSONObject to string
+                return jsonObject.toString();
             } else {
-                return null; // User not found
+                return null;
             }
         } finally {
             try {
