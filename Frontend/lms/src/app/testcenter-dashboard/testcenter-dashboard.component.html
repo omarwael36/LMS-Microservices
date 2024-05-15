@@ -1,0 +1,106 @@
+<div class="wallpaper">
+    <div class="overlay">
+        <div class="test">
+            <div class="navbar">
+                <div class="welcome">
+                    <h2>Welcome Test Center!</h2>
+                </div>
+                <div class="buttons">
+                    <button (click)="toggleShowUpdateCenterInformation()">Update center information</button>
+                    <button (click)="toggleShowCreateExams()">Create exams</button>
+                    <button (click)="toggleShowSetGrade()">Set grade  </button>
+                    <button (click)="toggleShowViewExamsAndGrades()">View exams and grades</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+
+            <!-- Update center information -->
+            <form class="test-center-form" *ngIf="showUpdateCenterInformation">
+                <div class="form-group">
+                    <label for="testCenterName">Test Center Name:</label>
+                    <input type="text" id="testCenterName" name="testCenterName" [(ngModel)]="testCenterName" required>
+                </div>
+                <div class="form-group">
+                    <label for="centerEmail">Email:</label>
+                    <input type="email" id="centerEmail" name="centerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="centerAddress">Address:</label>
+                    <input type="text" id="centerAddress" name="centerAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="centerLocation">Location:</label>
+                    <input type="text" id="centerLocation" name="centerLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="centerBranches">List of Branches:</label>
+                    <input id="centerBranches" name="centerBranches" rows="4" required>
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio:</label>
+                    <input id="bio" name="bio" [(ngModel)]="bio" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            
+
+            <!-- Create exams -->
+            <form class="course-form" *ngIf="showCreateExams">
+                <div class="form-group">
+                    <label for="examName">Exam Name:</label>
+                    <input type="text" id="examName" name="examName" required>
+                </div>
+                <div class="form-group">
+                    <label for="examDuration">Exam Duration (in minutes):</label>
+                    <input type="number" id="examDuration" name="examDuration" required>
+                </div>
+                <div class="form-group">
+                    <label for="availableDates">Available Dates:</label>
+                    <input id="availableDates" name="availableDates"  required>
+                </div>
+                <div class="form-group">
+                    <label for="scheduledDates">Scheduled Dates:</label>
+                    <input id="scheduledDates" name="scheduledDates">
+                </div>
+                <div class="form-group">
+                    <label for="grades">Grades:</label>
+                    <input id="grades" name="grades" rows="4" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+
+            <!-- Set grade -->
+            <form class="course-form" *ngIf="showSetGrade">
+                <div class="form-group">
+                    <label for="examName">Exam Name:</label>
+                    <input type="text" id="examName" name="examName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentName">Exam Duration (in minutes):</label>
+                    <input type="number" id="studentName" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentGrade">Grades:</label>
+                    <input id="studentGrade" name="studentGrade" rows="4" required>
+                </div>
+                <div class="form-group">
+                    <label for="branchName">Available Dates:</label>
+                    <input id="branchName" name="branchName"  required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+            <!-- View exams and gradest -->
+            
+
+            
+
+        </div>
+
+
+    </div>
+</div>

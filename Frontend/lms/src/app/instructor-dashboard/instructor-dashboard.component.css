@@ -1,0 +1,171 @@
+.wallpaper {
+    background-image: url('https://img.freepik.com/free-photo/top-view-education-day-elements-with-copy-space_23-2148721223.jpg?w=1060&t=st=1715693714~exp=1715694314~hmac=85160894e4280296287ac453b2001a7d11172d2179d462b8c59f9a1b4e62abd5');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+.overlay {
+    margin: 0;
+    padding: 0; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    overflow: hidden;
+
+
+}
+h2{
+    color: #fff;
+    stroke: black;
+}
+
+.test{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(51, 51, 51, 0.75); 
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .buttons {
+    display: flex;
+  }
+  
+  .buttons button {
+    margin-left: 10px; /* Adjust as needed */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+    cursor: pointer;
+  }
+  
+  .buttons button:first-child {
+    margin-left: 0;
+  }
+  
+.container{
+
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.208);
+  width: 60%;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-group {
+  width: 100%; 
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Disable button when form is invalid */
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+.custom-table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.custom-table th, .custom-table td {
+  padding: 8px;
+  border: 3px solid white;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+}
+
+.custom-table td {
+  text-align: center;
+}
+
+.table-btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: beige;
+  font-weight: bold;
+}
+
+.buttons-container{
+  display: flex;
+}
+
+.accept-btn {
+  background-color: #28a745;
+  color: #fff;
+  font-weight: normal;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+  color: #fff;
+  font-weight: normal;
+
+}

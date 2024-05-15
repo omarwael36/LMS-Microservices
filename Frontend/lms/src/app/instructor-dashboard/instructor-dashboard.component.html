@@ -1,0 +1,113 @@
+<div class="wallpaper">
+    <div class="overlay">
+      <div class="test">
+        <div class="navbar">
+          <div class="welcome">
+            <h2>Welcome Instructor!</h2>
+          </div>
+          <div class="buttons">
+            <button (click)="toggleCreateCourseForm()">Create Course</button>
+            <button (click)="toggleShowAllCoursesTable()">Show all courses</button>
+            <button (click)="toggleShowEnrollmentRequests()">Show enrollment requests</button>
+          </div>
+        </div>
+
+        <div class="container">
+
+          <!-- Create Course Form -->
+          <form class="course-form" *ngIf="showForm">
+            <div class="form-group">
+              <label for="courseName">Course Name:</label>
+              <input type="text" id="courseName" name="courseName" required>
+            </div>
+            <div class="form-group">
+              <label for="courseStartDate">Start Date:</label>
+              <input type="date" id="courseStartDate" name="courseStartDate" required>
+            </div>
+            <div class="form-group">
+              <label for="courseEndDate">End Date:</label>
+              <input type="date" id="courseEndDate" name="courseEndDate" required>
+            </div>
+            <div class="form-group">
+              <label for="courseCategory">Category:</label>
+              <input type="text" id="courseCategory" name="courseCategory" required>
+            </div>
+            <div class="form-group">
+              <label for="courseCapacity">Capacity:</label>
+              <input type="number" id="courseCapacity" name="courseCapacity" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+
+
+
+          <!-- Show all courses table -->
+          <table class="custom-table" *ngIf="showAllCoursesTable">
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Duration</th>
+                <th>Category</th>
+                <th>Rating</th>
+                <th>Capacity</th>
+                <th>Enrolled Students</th>
+                <th>Reviews</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Course 1</td>
+                <td>3 months</td>
+                <td>Programming</td>
+                <td>4.5</td>
+                <td>50</td>
+                <td>30</td>
+                <td>List of reviews</td>
+                <td>
+                  <div class="buttons-container">
+                    <button class="table-btn">Search Courses</button>
+                    <button class="table-btn">Sort by Ratings</button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+
+            
+
+          </table>
+          
+          
+          
+
+          <!-- Show enrollment requests table -->
+          <table class="custom-table" *ngIf="showEnrollmentRequestsTable">
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Student Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Course 1</td>
+                <td>Student A</td>
+                <td>
+                  <button class="table-btn accept-btn">Accept</button>
+                  <button class="table-btn reject-btn">Reject</button>
+                </td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+          
+          
+        </div>
+      </div>
+    </div>
+
+    
+</div>

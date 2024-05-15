@@ -55,13 +55,13 @@ export class LoginComponent implements OnInit {
     const userData = this.userService.getUserData();
     if (userData && userData.Role) {
       if (userData.Role === 'instructor') {
-        this.router.navigate(['/instructor-dashboard']);
+        this.router.navigate(['/instructorDashboard']);
       } else if (userData.Role === 'student') {
-        this.router.navigate(['/student-dashboard']);
+        this.router.navigate(['/studentDashboard']);
       } else if (userData.Role === 'admin') {
-        this.router.navigate(['/admin-dashboard']);
+        this.router.navigate(['/adminDashboard']);
       } else if (userData.Role === 'test center') {
-        this.router.navigate(['/test-center-dashboard']);
+        this.router.navigate(['/testcenterDashboard']);
       } else {
         // Handle other roles
       }
