@@ -54,9 +54,10 @@ public class TestCenterService {
         }
     }
 
-    public String createExam(CreateExamRequest request, String branchName) {
+
+    public String createExam(CreateExamRequest request, String branchName, String centerName) {
+        request.getExam().setCreatedBy(centerName);
         Exam savedExam = examRepository.save(request.getExam());
-        request.getExamDate().setExamId(savedExam.getExamId());
 
         TestCenter testCenter = testCenterRepository.findByBranches_BranchName(branchName);
         if (testCenter != null) {
@@ -72,7 +73,11 @@ public class TestCenterService {
 
             if (branch != null) {
                 List<ExamDate> examDates = branch.getExamDates();
-                examDates.add(request.getExamDate());
+                for (ExamDate examDate : request.getExamDates()) {
+                    examDate.setIsFull(false);
+                    examDate.setExamReservations(new ArrayList<>()); // Empty list
+                }
+                examDates.addAll(request.getExamDates());
                 branch.setExamDates(examDates);
                 testCenterRepository.save(testCenter);
 
@@ -80,10 +85,10 @@ public class TestCenterService {
                 examLogs.setName(branchName);
                 examLogs.setRole("test center");
                 examLogs.setTimeStamp(LocalDateTime.now());
-                examLogs.setAction("Created exam and associated with exam date");
+                examLogs.setAction("Created exam and associated with exam dates");
                 examLogsRepository.save(examLogs);
 
-                return "Exam created and associated with exam date successfully";
+                return "Exam created and associated with exam dates successfully";
             } else {
                 return "Branch not found";
             }
@@ -91,6 +96,8 @@ public class TestCenterService {
             return "Test center with branch name not found";
         }
     }
+
+
 
     public String setStudentGrade(String examName, String studentName, int studentGrade, String branchName) {
         Exam exam = examRepository.findExamByExamName(examName);
@@ -129,7 +136,7 @@ public class TestCenterService {
                         }
 
                         examDate.setExamReservations(examReservations);
-                        examDate.setFull(examReservations.size() >= examDate.getCapacity());
+                        examDate.setIsFull(examReservations.size() >= examDate.getCapacity());
                         testCenterRepository.save(testCenter);
 
                         ExamLogs examLogs = new ExamLogs();
@@ -183,7 +190,7 @@ public class TestCenterService {
                             int remainingCapacity = examDate.getCapacity() - 1;
                             examDate.setCapacity(remainingCapacity);
                             if (remainingCapacity == 0) {
-                                examDate.setFull(true);
+                                examDate.setIsFull(true);
                             }
                             testCenterRepository.save(testCenter);
                             ExamLogs examLogs = new ExamLogs();

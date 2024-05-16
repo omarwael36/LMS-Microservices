@@ -22,4 +22,9 @@ public class ExamDate {
     private int capacity;
     private List<ExamReservation> examReservations;
     private boolean isFull;
+
+    public void setIsFull(boolean b) {
+        isFull = b;
+    }
+
 }
