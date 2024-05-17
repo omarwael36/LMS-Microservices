@@ -83,5 +83,9 @@ public class CourseController {
         courseService.adminEditCourse(course, courseName);
     }
 
+    @PutMapping("/UpdateCourseENrollmentNumber")
+    public void updateCourseEnrollmentNumber(@RequestParam String courseName) {
+        courseService.updateCourseEnrollmentNumber(courseName);
+    }
 
 }

@@ -208,4 +208,17 @@ public class CourseService {
         }
     }
 
+    public void updateCourseEnrollmentNumber(String courseName) {
+        Course course = courseRepository.findCourseByCourseName(courseName);
+        if (course != null) {
+            course.setCourseEnrolled(course.getCourseEnrolled() + 1);
+            courseRepository.save(course);
+        }
+        CourseLogs courseLogs = new CourseLogs();
+        courseLogs.setName("student");
+        courseLogs.setRole("Student");
+        courseLogs.setTimeStamp(LocalDateTime.now());
+        courseLogs.setAction("enrolled a course");
+        courseLogsRepository.save(courseLogs);
+    }
 }
