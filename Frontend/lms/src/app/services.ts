@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AdminResponse } from './models/AdminResponse';
 import { Course } from './models/Courses';
+import { ExamResults } from './models/ExamResults';
 
 @Injectable({
   providedIn: 'root'
@@ -65,4 +66,8 @@ export class UserService {
   createExam(examInfo: any, testCenterName: string): Observable<any> {
     return this.http.post<any>(`http://localhost:8081/api/v1/TestCenter/CreateExam?testCenterName=${testCenterName}`, examInfo);
   }
+  getStudentsGrades(testCenterName: string): Observable<ExamResults[]> {
+    return this.http.get<ExamResults[]>(`http://localhost:8081/api/v1/TestCenter/GetStudentsGrades?TestCenterName=${testCenterName}`);
+  }
+
 }

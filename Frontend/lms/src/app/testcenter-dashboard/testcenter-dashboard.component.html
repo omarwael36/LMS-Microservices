@@ -1,161 +1,174 @@
 <div class="wallpaper">
     <div class="overlay">
-      <div class="test">
-        <div class="navbar">
-          <div class="welcome">
-            <h2>Welcome Test Center!</h2>
-          </div>
-          <div class="buttons">
-            <button (click)="toggleShowUpdateCenterInformation()">Update center information</button>
-            <button (click)="toggleShowCreateExams()">Create exams</button>
-            <button (click)="toggleShowSetGrade()">Set grade</button>
-            <button (click)="toggleShowViewExamsAndGrades()">View exams and grades</button>
-          </div>
-        </div>
-      </div>
-  
-      <div class="container">
-        <!-- Update center information forms div -->
-        <div>
-          <!-- Update center information first form-->
-          <form class="test-center-form" *ngIf="showUpdateCenterInformation" (ngSubmit)="saveUpdateCenterInfo()">
-            <div class="form-group">
-              <label for="testCenterName">Test Center Name:</label>
-              <input type="text" id="testCenterName" name="testCenterName" [(ngModel)]="testCenterName" required>
+        <div class="test">
+            <div class="navbar">
+                <div class="welcome">
+                    <h2>Welcome Test Center!</h2>
+                </div>
+                <div class="buttons">
+                    <button (click)="toggleShowUpdateCenterInformation()">Update center information</button>
+                    <button (click)="toggleShowCreateExams()">Create exams</button>
+                    <button (click)="toggleShowSetGrade()">Set grade</button>
+                    <button (click)="toggleShowViewExamsAndGrades()">View exams and grades</button>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="bio">Bio:</label>
-              <input type="text" id="bio" name="bio" [(ngModel)]="bio" required>
-            </div>
-            <div class="buttons">
-              <button type="button" class="btn btn-primary" (click)="showUpdateCenterInformationSecondForm()">Add branch</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
-  
-          <!-- Update center information second form-->
-          <div class="UpdatCenterSecondForm" *ngIf="secondForm">
-            <button type="button" class="btn btn-primary" (click)="showUpdateCenterInformationThirdForm()">Add new branch</button>
-          </div>
-  
-          <!-- Update center information third form-->
-          <div class="UpdatCenterThirdForm" *ngIf="thirdForm">
-            <form class="test-center-form" (ngSubmit)="saveBranchInfo()">
-              <div class="form-group">
-                <label for="branchName">Branch Name:</label>
-                <input type="text" id="branchName" name="branchName" [(ngModel)]="branchName" required>
-              </div>
-              <div class="form-group">
-                <label for="branchLocation">Branch location:</label>
-                <input type="text" id="branchLocation" name="branchLocation" [(ngModel)]="branchLocation" required>
-              </div>
-              <div class="form-group">
-                <label for="branchAddress">Branch address:</label>
-                <input type="text" id="branchAddress" name="branchAddress" [(ngModel)]="branchAddress" required>
-              </div>
-              <div class="buttons">
-                <button type="button" class="btn btn-primary" (click)="saveBranchInfo()">Add another new branch</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
         </div>
-  
-        <!-- Create exams forms div -->
-        <div>
-          <!-- Create exams first form -->
-          <div class="showCreateExams" *ngIf="showCreateExams">
-            <form class="course-form" (ngSubmit)="saveCreateExamsInfo()">
-              <div class="form-group">
-                <label for="examName">Exam Name:</label>
-                <input type="text" id="examName" name="examName" [(ngModel)]="examName" required>
-              </div>
-              <div class="form-group">
-                <label for="examDuration">Exam Duration (in minutes):</label>
-                <input type="text" id="examDuration" name="examDuration" required>
-              </div>
-              <div class="form-group">
-                <label for="fullMark">FullMark:</label>
-                <input type="text" id="fullMark" name="fullMark" [(ngModel)]="fullMark" required>
-              </div>
-              <button type="button" class="btn btn-primary" (click)="showCreateExamsSecondForm()">Add exam dates</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-  
-          <!-- Create exams second form -->
-          <div class="createExamSecondForm" *ngIf="createExamsSecondForm">
-            <button type="button" class="btn btn-primary" (click)="showCreateExamsThirdForm()">Add exam date</button>
-          </div>
-  
-          <!-- Create exams third form -->
-          <div class="createExamThirdForm" *ngIf="createExamsThirdForm">
-            <form class="test-center-form" (ngSubmit)="saveDateInfo()">
-              <div class="form-group">
-                <label for="examDate">examDate:</label>
-                <input type="text" id="examDate" name="examDate" [(ngModel)]="examDate" required>
-              </div>
-              <div class="form-group">
-                <label for="examTime">examTime:</label>
-                <input type="text" id="examTime" name="examTime" [(ngModel)]="examTime" required>
-              </div>
-              <div class="form-group">
-                <label for="capacity">capacity:</label>
-                <input type="text" id="capacity" name="capacity" [(ngModel)]="capacity" required>
-              </div>
-              <div class="form-group">
-                <label for="branchName">Branch Name:</label>
-                <input type="text" id="branchName" name="branchName" [(ngModel)]="branchName" required>
-              </div>
-              <div class="buttons">
-                <button type="button" class="btn btn-primary" (click)="saveDateInfo()">Add another date for exam</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-  
-        <div class="successfullySubmitted" *ngIf="successfullySubmitted">
-          <h1>Thank You</h1>
-          <p>Your action is Successfully Submitted</p>
-        </div>
-  
-      <!-- Set grade -->
-      <form class="course-form" *ngIf="showSetGrade">
-        <div class="form-group">
-          <label for="examName">Exam Name:</label>
-          <input type="text" id="examName" name="examName" required>
-        </div>
-        <div class="form-group">
-          <label for="studentName">Student name:</label>
-          <input type="text" id="studentName" name="studentName" required>
-        </div>
-        <div class="form-group">
-          <label for="studentGrade">Student grade:</label>
-          <input type="text" id="studentGrade" name="studentGrade" rows="4" required>
-        </div>
-        <div class="form-group">
-          <label for="branchName">Branch name:</label>
-          <input type="text" id="branchName" name="branchName" required>
-      </div>
-      <button type="submit" class="btn btn-primary" (click)="submitSetGrade()">Submit</button>
-      </form>
 
-      <!-- View exams and grades -->
-      <div class="table-container" *ngIf="showViewExamsAndGrades">
-        <table class="custom-table" *ngIf="showViewExamsAndGrades">
-          <thead>
-            <tr>
-              <th>Exam name</th>
-              <th>Student Name</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Placeholder for exam and grade rows -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+        <div class="container">
+            <!-- Update center information forms div -->
+            <div>
+                <!-- Update center information first form-->
+                <form class="test-center-form" *ngIf="showUpdateCenterInformation" (ngSubmit)="saveUpdateCenterInfo()">
+                    <div class="form-group">
+                        <label for="testCenterName">Test Center Name:</label>
+                        <input type="text" id="testCenterName" name="testCenterName" [(ngModel)]="testCenterName"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio:</label>
+                        <input type="text" id="bio" name="bio" [(ngModel)]="bio" required>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-primary"
+                            (click)="showUpdateCenterInformationSecondForm()">Add branch</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+                <!-- Update center information second form-->
+                <div class="UpdatCenterSecondForm" *ngIf="secondForm">
+                    <button type="button" class="btn btn-primary"
+                        (click)="showUpdateCenterInformationThirdForm()">Add new branch</button>
+                </div>
+
+                <!-- Update center information third form-->
+                <div class="UpdatCenterThirdForm" *ngIf="thirdForm">
+                    <form class="test-center-form" (ngSubmit)="saveBranchInfo()">
+                        <div class="form-group">
+                            <label for="branchName">Branch Name:</label>
+                            <input type="text" id="branchName" name="branchName" [(ngModel)]="branchName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="branchLocation">Branch location:</label>
+                            <input type="text" id="branchLocation" name="branchLocation" [(ngModel)]="branchLocation"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="branchAddress">Branch address:</label>
+                            <input type="text" id="branchAddress" name="branchAddress" [(ngModel)]="branchAddress"
+                                required>
+                        </div>
+                        <div class="buttons">
+                            <button type="button" class="btn btn-primary" (click)="saveBranchInfo()">Add another new
+                                branch</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Create exams forms div -->
+            <div>
+                <!-- Create exams first form -->
+                <div class="showCreateExams" *ngIf="showCreateExams">
+                    <form class="course-form" (ngSubmit)="saveCreateExamsInfo()">
+                        <div class="form-group">
+                            <label for="examName">Exam Name:</label>
+                            <input type="text" id="examName" name="examName" [(ngModel)]="examName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="examDuration">Exam Duration (in minutes):</label>
+                            <input type="text" id="examDuration" name="examDuration" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fullMark">FullMark:</label>
+                            <input type="text" id="fullMark" name="fullMark" [(ngModel)]="fullMark" required>
+                        </div>
+                        <button type="button" class="btn btn-primary"
+                            (click)="showCreateExamsSecondForm()">Add exam dates</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <!-- Create exams second form -->
+                <div class="createExamSecondForm" *ngIf="createExamsSecondForm">
+                    <button type="button" class="btn btn-primary"
+                        (click)="showCreateExamsThirdForm()">Add exam date</button>
+                </div>
+
+<!-- Create exams third form -->
+<div class="createExamThirdForm" *ngIf="createExamsThirdForm">
+    <form class="test-center-form" (ngSubmit)="saveCreateExamsInfo()"> <!-- Change ngSubmit to call saveCreateExamsInfo() -->
+        <div class="form-group">
+            <label for="examDate">examDate:</label>
+            <input type="text" id="examDate" name="examDate" [(ngModel)]="examDate" required>
+        </div>
+        <div class="form-group">
+            <label for="examTime">examTime:</label>
+            <input type="text" id="examTime" name="examTime" [(ngModel)]="examTime" required>
+        </div>
+        <div class="form-group">
+            <label for="capacity">capacity:</label>
+            <input type="text" id="capacity" name="capacity" [(ngModel)]="capacity" required>
+        </div>
+        <div class="form-group">
+            <label for="branchName">Branch Name:</label>
+            <input type="text" id="branchName" name="branchName" [(ngModel)]="branchName" required>
+        </div>
+        <div class="buttons">
+            <button type="button" class="btn btn-primary" (click)="saveDateInfo()">Add another date
+                for exam</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
 </div>
+
+            <div class="successfullySubmitted" *ngIf="successfullySubmitted">
+                <h1>Thank You</h1>
+                <p>Your action is Successfully Submitted</p>
+            </div>
+
+            <!-- Set grade -->
+            <form class="course-form" *ngIf="showSetGrade">
+                <div class="form-group">
+                    <label for="examName">Exam Name:</label>
+                    <input type="text" id="examName" name="examName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentName">Student name:</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentGrade">Student grade: </label>
+                    <input type="text" id="studentGrade" name="studentGrade" rows="4" required>
+                </div>
+                <div class="form-group">
+                    <label for="branchName">Branch name:</label>
+                    <input type="text" id="branchName" name="branchName" required>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="submitSetGrade()">Submit</button>
+            </form>
+
+            <!-- View exams and grades -->
+            <div class="table-container" *ngIf="showViewExamsAndGrades">
+                <table class="custom-table" *ngIf="showViewExamsAndGrades">
+                    <thead>
+                      <tr>
+                        <th>Exam name</th>
+                        <th>Student Name</th>
+                        <th>Grade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let result of studentsGrades">
+                        <td>{{ result.exam.examName }}</td>
+                        <td>{{ result.studentName }}</td>
+                        <td>{{ result.examResult }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services';
 import { User } from '../user.service';
+import { ExamResults } from '../models/ExamResults'; // Import ExamResults model
 
 @Component({
   selector: 'app-testcenter-dashboard',
@@ -34,7 +35,9 @@ export class TestcenterDashboardComponent implements OnInit {
   examDate: string = "";
   examTime: string = "";
   capacity: number = 0;
-  examDates: any[] = [];
+  examDatesList: any[] = []; // New list to store exam dates
+
+  studentsGrades: ExamResults[] = []; // New property to store exam results
 
   constructor(private testCenterService: UserService, private userService: User) {}
 
@@ -43,6 +46,7 @@ export class TestcenterDashboardComponent implements OnInit {
     if (userData) {
       this.testCenterName = userData.username;
     }
+    this.getStudentsGrades();
   }
 
   toggleShowUpdateCenterInformation() {
@@ -61,7 +65,6 @@ export class TestcenterDashboardComponent implements OnInit {
   }
 
   toggleShowCreateExams() {
-
     this.showUpdateCenterInformation = false;
     this.showCreateExams = !this.showCreateExams;
     this.showSetGrade = false;
@@ -163,27 +166,31 @@ export class TestcenterDashboardComponent implements OnInit {
 
   saveDateInfo() {
     const dateInfo = {
-      examId: '',
       examDate: this.examDate,
-      branchName: this.branchName,
       examTime: this.examTime,
       capacity: this.capacity,
-      examReservations: [],
-      isFull: false
+      branchName: this.branchName
     };
-    this.examDates.push(dateInfo);
+    this.examDatesList.push(dateInfo);
     this.createExamsSecondForm = true;
     this.createExamsThirdForm = false;
+
+    // Clear input fields after saving date info
+    this.examDate = "";
+    this.examTime = "";
+    this.capacity = 0;
+    this.branchName = "";
   }
 
   saveCreateExamsInfo() {
+    console.log(this.testCenterName)
     const examInfo = {
       exam: {
         examName: this.examName,
         fullMark: this.fullMark,
         createdBy: this.testCenterName
       },
-      examDate: this.examDates
+      examDate: this.examDatesList
     };
 
     this.testCenterService.createExam(examInfo, this.testCenterName).subscribe(
@@ -196,26 +203,40 @@ export class TestcenterDashboardComponent implements OnInit {
       }
     );
 
-    this.createExamsThirdForm = false;
+    // Reset the form and examDatesList after creating the exam
+    this.resetForms();
+    this.examDatesList = [];
   }
 
-  // resetForms() {
-  //   this.showCreateExams = false;
-  //   this.showSetGrade = false;
-  //   this.showViewExamsAndGrades = false;
+  resetForms() {
+    this.showCreateExams = false;
+    this.showSetGrade = false;
+    this.showViewExamsAndGrades = false;
 
-  //   this.secondForm = false;
-  //   this.thirdForm = false;
+    this.secondForm = false;
+    this.thirdForm = false;
 
-  //   this.createExamsSecondForm = false;
-  //   this.createExamsThirdForm = false;
+    this.createExamsSecondForm = false;
+    this.createExamsThirdForm = false;
 
-  //   this.successfullySubmitted = false;
-  // }
+    this.successfullySubmitted = false;
+  }
 
   resetBranchInputs() {
     this.branchName = "";
     this.branchLocation = "";
     this.branchAddress = "";
+  }
+
+  getStudentsGrades() {
+    this.testCenterService.getStudentsGrades(this.testCenterName).subscribe(
+      (response) => {
+        console.log("Students grades retrieved successfully:", response);
+        this.studentsGrades = response;
+      },
+      (error) => {
+        console.error("Error occurred while getting students grades:", error);
+      }
+    );
   }
 }

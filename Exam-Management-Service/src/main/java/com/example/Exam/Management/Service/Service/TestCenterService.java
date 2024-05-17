@@ -57,26 +57,39 @@ public class TestCenterService {
 
     public String createExam(CreateExamRequest request, String centerName) {
         request.getExam().setCreatedBy(centerName);
+
+        // Save the exam
         Exam savedExam = examRepository.save(request.getExam());
 
-        TestCenter testCenter = testCenterRepository.findByBranches_BranchName(request.getExamDates().get(0).getBranchName());
+        // Find the test center by name
+        TestCenter testCenter = testCenterRepository.findTestCenterByTestCenterName(centerName);
+
         if (testCenter != null) {
-            List<Branch> branches = testCenter.getBranches();
             Branch branch = null;
-            for (Branch b : branches) {
-                if (b.getBranchName().equals(request.getExamDates().getFirst().getBranchName())) {
+
+            // Iterate through test center branches
+            for (Branch b : testCenter.getBranches()) {
+                // Check if branch name matches
+                if (b.getBranchName().equals(request.getExamDates().get(0).getBranchName())) {
                     branch = b;
                     break;
                 }
             }
 
             if (branch != null) {
+                // Initialize examDates list if null
+                if (branch.getExamDates() == null) {
+                    branch.setExamDates(new ArrayList<>());
+                }
+
                 List<ExamDate> examDates = branch.getExamDates();
+
                 for (ExamDate examDate : request.getExamDates()) {
                     examDate.setIsFull(false);
                     examDate.setExamReservations(new ArrayList<>());
                     examDate.setExamId(savedExam.getExamId()); // Associate with saved exam ID
                 }
+
                 examDates.addAll(request.getExamDates());
                 branch.setExamDates(examDates);
                 testCenterRepository.save(testCenter);
@@ -93,9 +106,11 @@ public class TestCenterService {
                 return "Branch not found";
             }
         } else {
-            return "Test center with branch name not found";
+            return "Test center not found";
         }
     }
+
+
 
 
 
