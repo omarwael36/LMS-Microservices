@@ -1,6 +1,5 @@
 package com.example.Course.Management.Service.Controller;
 
-
 import com.example.Course.Management.Service.Model.Course;
 import com.example.Course.Management.Service.Model.CourseLogs;
 import com.example.Course.Management.Service.Model.Rating;

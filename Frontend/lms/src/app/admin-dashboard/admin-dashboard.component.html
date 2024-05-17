@@ -7,8 +7,7 @@
         </div>
         <div class="buttons">
           <button (click)="toggleShowViewAllUsers()">View all users</button>
-          <button (click)="toggleShowPublishRequests()">Review publish requests</button>
-          <button (click)="toggleShowRemoveCourse()">Remove a course</button>
+          <button (click)="toggleShowRemoveCourse()">Review publish requests</button>
           <button (click)="toggleShowAccountGeneration()">Generate test center account</button>
           <button (click)="toggleShowLogs()">Show logs</button>
         </div>
@@ -36,43 +35,19 @@
         </table>
       </div>
 
-      <!-- Review publish request -->
-      <div class="table-container" *ngIf="showPublishRequests">
-        <table class="custom-table">
-          <thead>
-            <tr>
-              <th>Course Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Add course publish requests here -->
-          </tbody>
-        </table>
-      </div>
 
-      <!-- Remove a course -->
-      <div class="table-container" *ngIf="showRemoveCourse">
-        <table class="custom-table">
-          <thead>
-            <tr>
-              <th>Course Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Add courses to be removed here -->
-            <tr>
-              <td>Course 1</td>
-              <td>
-              <button class="table-btn accept-btn">Accept</button>
-              <button class="table-btn reject-btn">Reject</button>
-              </td>
-          </tr>
-
-          </tbody>
-        </table>
+      <div *ngIf="showPublishRequests">
+        <h2>Publish Requests</h2>
+        <ul>
+          <li *ngFor="let course of courses">
+            {{ course.courseName }}
+            <button (click)="adminPublishCourse(course)">Accept</button>
+            <button (click)="adminRejectCourse(course)">Reject</button>
+          </li>
+        </ul>
       </div>
+      
+      
 
       <!-- Generate test center account -->
       <div class="generateAcc" *ngIf="showAccountGeneration">

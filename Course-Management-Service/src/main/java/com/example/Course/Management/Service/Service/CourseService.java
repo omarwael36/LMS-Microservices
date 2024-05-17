@@ -7,6 +7,7 @@ import com.example.Course.Management.Service.Model.Review;
 import com.example.Course.Management.Service.Repository.CourseRepository;
 import com.example.Course.Management.Service.Repository.LogsRepository;
 import com.example.Course.Management.Service.Repository.RatingRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -117,8 +118,9 @@ public class CourseService {
         courseLogs.setTimeStamp(LocalDateTime.now());
         courseLogs.setAction("rated a course");
         courseLogsRepository.save(courseLogs);
-        String courseId = rating.getCourseId();
-        Rating existingRating = ratingRepository.findByCourseIdAndStudentId(courseId, rating.getStudentId());
+
+        ObjectId courseId = rating.getCourseId();
+        Rating existingRating = ratingRepository.findByCourseIdAndStudentId(String.valueOf(courseId), rating.getStudentId());
         if (existingRating != null) {
             existingRating.setRating(rating.getRating());
             ratingRepository.save(existingRating);
@@ -126,22 +128,20 @@ public class CourseService {
             ratingRepository.save(rating);
         }
 
-        List<Rating> ratings = ratingRepository.findAllByCourseId(courseId);
+        List<Rating> ratings = ratingRepository.findAllByCourseId(String.valueOf(courseId));
         double totalRating = 0;
         for (Rating rate : ratings) {
             totalRating += rate.getRating();
         }
-        double averageRating = 0;
-        if (!ratings.isEmpty()) {
-            averageRating = totalRating / ratings.size();
-        }
+        double averageRating = ratings.isEmpty() ? 0 : totalRating / ratings.size();
 
-        Course course = courseRepository.findById(courseId).orElse(null);
+        Course course = courseRepository.findById(String.valueOf(courseId)).orElse(null);
         if (course != null) {
             course.setCourseRating(averageRating);
             courseRepository.save(course);
         }
     }
+
 
     public List<CourseLogs> showCourseLogs() {
         return courseLogsRepository.findAll();

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../services';
 import { AdminResponse } from '../models/AdminResponse';
 import { CenterCredentials } from '../models/CenterCredentials';
+import { Course } from '../models/Courses';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -19,6 +20,7 @@ export class AdminDashboardComponent {
   generatedEmail: string = '';
   generatedPassword: string = '';
   users: AdminResponse[] = [];
+courses: any;
 
   constructor(private userService: UserService) {}
 
@@ -42,16 +44,22 @@ export class AdminDashboardComponent {
     this.showAccountGeneration = false;
     this.showLogs = false;
     this.accountGenerationSecondForm = false;
+    
   }
 
   toggleShowRemoveCourse(){
     this.showViewAllUsers = false;
-    this.showPublishRequests = false;
-    this.showRemoveCourse = !this.showRemoveCourse;
+    this.showPublishRequests = !this.showPublishRequests; // Toggle the showPublishRequests flag
+    this.showRemoveCourse = false;
     this.showAccountGeneration = false;
     this.showLogs = false;
     this.accountGenerationSecondForm = false;
+  
+    if (this.showPublishRequests) {
+      this.fetchPublishRequests(); // Fetch publish requests if showPublishRequests is true
+    }
   }
+  
 
   toggleShowAccountGeneration(){
     this.showViewAllUsers = false;
@@ -130,4 +138,43 @@ export class AdminDashboardComponent {
       }
     );
   } 
-}
+
+  
+  fetchPublishRequests() {
+    this.userService.showPublishRequests().subscribe(
+      (courses: Course[]) => {
+        this.courses = courses;
+      },
+      (error) => {
+        console.error('Error fetching publish requests:', error);
+      }
+    );
+  }
+
+  adminPublishCourse(course: Course) {
+    this.userService.adminPublishCourse(course.courseName).subscribe(
+      () => {
+        console.log('Course published successfully');
+        // Optionally, you can update the UI or fetch the list of publish requests again
+        this.fetchPublishRequests();
+      },
+      (error) => {
+        console.error('Error publishing course:', error);
+      }
+    );
+  }
+  
+  adminRejectCourse(course: Course) {
+    this.userService.adminRejectCourse(course.courseName).subscribe(
+      () => {
+        console.log('Course rejected successfully');
+        // Optionally, you can update the UI or fetch the list of publish requests again
+        this.fetchPublishRequests();
+      },
+      (error) => {
+        console.error('Error rejecting course:', error);
+      }
+    );
+  }
+  }
+
