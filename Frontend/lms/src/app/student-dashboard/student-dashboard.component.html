@@ -6,42 +6,201 @@
                     <h2>Welcome Student!</h2>
                 </div>
                 <div class="buttons">
-                    <button >View all courses</button>
-                    <button >Course enrollment requests</button>
-                    <button >Notifications</button>
-                    <button >Review and rating</button>
-                    <button >Nearby test centers</button>
-                    <button >Register an exam</button>
-                    <button >View exam grades</button>
+                    <button (click)="toggleShowViewAllCourses()">View all courses</button>
+                    <button (click)="toggleShowCourseEnrollmentRequests()">Course enrollment requests</button>
+                    <button (click)="toggleShowNotifications()">Notifications</button>
+                    <button (click)="toggleShowReviewAndRating()">Review and rating</button>
+                    <button (click)="toggleShowNearbyTestCentersFirstForm()">Nearby test centers</button>
+                    <button (click)="toggleShowRegisterAnExam()">Register an exam</button>
+                    <button (click)="toggleShowViewExamGrades()">View exam grades</button>
                 </div>
             </div>
         </div>
 
 
         <div class="container">
-
             <!-- View all courses -->
+            <div class="table-container" *ngIf="showViewAllCourses">
+                <div class="student-form">
+                    <form class="student-form">
+                    <div class="radios">
+                        <label> <input type="radio" name="searchOption" value="category"> Search by Category </label>
+                        <label> <input type="radio" name="searchOption" value="name"> Search by Name </label>
+                    </div> 
+                    <div class="search">
+                        <input type="text" name="searchQuery" placeholder="Search">
+                        <button type="submit" class="table-btn" (click)="null">Search</button>
+                        <button type="button" class="table-btn" (click)="null">Sort by Ratings</button>
+                    </div>
+                    </form>
+                </div>
+                <table class="custom-table" *ngIf="true">
+                    <thead>
+                        <tr>
+                        <th>Course Name</th>
+                        <th>Duration</th>
+                        <th>Category</th>
+                        <th>Rating</th>
+                        <th>Capacity</th>
+                        <th>Enrolled Students</th>
+                        <th>Reviews</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td>Course 1</td>
+                        <td>3 months</td>
+                        <td>Programming</td>
+                        <td>4.5</td>
+                        <td>50</td>
+                        <td>30</td>
+                        <td>List of reviews</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
             
 
             <!-- Course enrollment requests -->
+            <div class="table-container gap-1" *ngIf="showCourseEnrollmentRequests">
+                <form class="student-form" *ngIf="showCourseEnrollmentRequests">
+                    <div class="form-group">
+                        <label for="courseName">Course Name:</label>
+                        <input type="text" id="courseName" name="courseName" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" >Enroll</button>
+                </form>
 
+                <table class="custom-table" *ngIf="true">
+                    <thead>
+                        <tr>
+                        <th>Course Name</th>
+                        <th>Status</th>
+                        <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td>Course 1</td>
+                        <td>Pending</td>
+                        <td>
+                            <button class="table-btn reject-btn">Remove</button>
+                        </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+
+            </div>
 
             <!-- Notifications -->
+            <div class="table-container" *ngIf="showNotifications">
+                <table class="custom-table" *ngIf="showNotifications">
+                    <thead>
+                        <tr>
+                        <th>Course name</th>
+                        <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td>Training</td>
+                        <td>pending</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
 
 
             <!-- Review and rating -->
-
+            <div class="showCreateExams" *ngIf="showReviewAndRating">
+                <form class="student-form" *ngIf="showReviewAndRating">
+                    <div class="form-group">
+                        <label for="courseName">Course name:</label>
+                        <input type="text" id="courseName" name="courseName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review">Review:</label>
+                        <input type="text" id="review" name="review" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">Rating:</label>
+                        <input type="text" id="rate" name="rate" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="null">Add exam dates</button>
+                </form>
+            </div>
             
             <!-- Nearby test centers -->
+            <!--  -->
+            <div class="showCreateExams" *ngIf="showNearbyTestCentersFirstForm">
+                <form class="course-form" *ngIf="showNearbyTestCentersFirstForm">
+                    <div class="form-group">
+                        <label for="location">Enter your location</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" (click)="toggleShowNearbyTestCentersSecondForm()">Show nearby test centers</button>
+                </form>
+            </div>
+
+            <!--  -->
+            <div class="table-container" *ngIf="showNearbyTestCentersSecondForm">
+                <table class="custom-table" *ngIf="showNearbyTestCentersSecondForm">
+                    <thead>
+                        <tr>
+                        <th>Test center name</th>
+                        <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td>Training</td>
+                        <td>51</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
 
 
             <!-- Register an exam -->
-
+            <div class="showCreateExams" *ngIf="showRegisterAnExam">
+                <form class="student-form" *ngIf="showRegisterAnExam">
+                    <div class="form-group">
+                        <label for="examName">Exam Name:</label>
+                        <input type="text" id="examName" name="examName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="testCenterName">Test Center Name:</label>
+                        <input type="text" id="testCenterName" name="testCenterName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="branchName">Branch Name:</label>
+                        <input type="text" id="branchName" name="branchName" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="null">Register</button>
+                </form>
+            </div>
 
             <!-- View exam grades -->
+            <div class="table-container" *ngIf="showViewExamGrades">
+                <table class="custom-table" *ngIf="showViewExamGrades">
+                    <thead>
+                        <tr>
+                        <th>Exam name</th>
+                        <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td>Training</td>
+                        <td>51</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
             
-            
-
         </div>
 
 
