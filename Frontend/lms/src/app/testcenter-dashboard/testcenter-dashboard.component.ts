@@ -47,22 +47,63 @@ export class TestcenterDashboardComponent implements OnInit {
 
   toggleShowUpdateCenterInformation() {
     this.showUpdateCenterInformation = !this.showUpdateCenterInformation;
-    this.resetForms();
+    this.showCreateExams = false;
+    this.showSetGrade = false;
+    this.showViewExamsAndGrades = false;
+
+    this.secondForm = false;
+    this.thirdForm = false;
+
+    this.createExamsSecondForm = false;
+    this.createExamsThirdForm = false;
+
+    this.successfullySubmitted = false;
   }
 
   toggleShowCreateExams() {
+
+    this.showUpdateCenterInformation = false;
     this.showCreateExams = !this.showCreateExams;
-    this.resetForms();
+    this.showSetGrade = false;
+    this.showViewExamsAndGrades = false;
+
+    this.secondForm = false;
+    this.thirdForm = false;
+
+    this.createExamsSecondForm = false;
+    this.createExamsThirdForm = false;
+
+    this.successfullySubmitted = false;
   }
 
   toggleShowSetGrade() {
+    this.showUpdateCenterInformation = false;
+    this.showCreateExams = false;
     this.showSetGrade = !this.showSetGrade;
-    this.resetForms();
+    this.showViewExamsAndGrades = false;
+
+    this.secondForm = false;
+    this.thirdForm = false;
+
+    this.createExamsSecondForm = false;
+    this.createExamsThirdForm = false;
+
+    this.successfullySubmitted = false;
   }
 
   toggleShowViewExamsAndGrades() {
+    this.showUpdateCenterInformation = false;
+    this.showCreateExams = false;
+    this.showSetGrade = false;
     this.showViewExamsAndGrades = !this.showViewExamsAndGrades;
-    this.resetForms();
+
+    this.secondForm = false;
+    this.thirdForm = false;
+
+    this.createExamsSecondForm = false;
+    this.createExamsThirdForm = false;
+
+    this.successfullySubmitted = false;
   }
 
   showUpdateCenterInformationSecondForm() {
@@ -158,19 +199,19 @@ export class TestcenterDashboardComponent implements OnInit {
     this.createExamsThirdForm = false;
   }
 
-  resetForms() {
-    this.showCreateExams = false;
-    this.showSetGrade = false;
-    this.showViewExamsAndGrades = false;
+  // resetForms() {
+  //   this.showCreateExams = false;
+  //   this.showSetGrade = false;
+  //   this.showViewExamsAndGrades = false;
 
-    this.secondForm = false;
-    this.thirdForm = false;
+  //   this.secondForm = false;
+  //   this.thirdForm = false;
 
-    this.createExamsSecondForm = false;
-    this.createExamsThirdForm = false;
+  //   this.createExamsSecondForm = false;
+  //   this.createExamsThirdForm = false;
 
-    this.successfullySubmitted = false;
-  }
+  //   this.successfullySubmitted = false;
+  // }
 
   resetBranchInputs() {
     this.branchName = "";
