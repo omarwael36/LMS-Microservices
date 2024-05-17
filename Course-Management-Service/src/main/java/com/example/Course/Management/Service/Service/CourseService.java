@@ -36,6 +36,7 @@ public class CourseService {
         Course existingCourse = courseRepository.findCoursesByCourseNameAndInstructor_Name(course.getCourseName(), instructorName);
 
         if (existingCourse == null) {
+            course.setReviews(new ArrayList<>());
             CourseLogs courseLogs = new CourseLogs();
             courseLogs.setName(instructorName);
             courseLogs.setRole("instructor");

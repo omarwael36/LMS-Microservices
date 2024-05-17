@@ -2,6 +2,7 @@ package com.example.user_servicer.Services;
 
 import com.example.user_servicer.DBConnection.DBConnection;
 import com.example.user_servicer.Models.AdminResponse;
+import com.example.user_servicer.Models.CenterCredintials;
 import com.example.user_servicer.Models.User;
 
 import javax.ejb.EJB;
@@ -22,7 +23,7 @@ public class AdminService {
 
     @EJB
     private DBConnection connection;
-    public int AdminGenerateCenterCredentials(String centername) throws SQLException {
+    public CenterCredintials AdminGenerateCenterCredentials(String centername) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -33,20 +34,21 @@ public class AdminService {
             preparedStatement.setString(1, "%" + centername + "%");
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next() && resultSet.getInt(1) > 0) {
-                return -1;
+                return null;
             }
             SecureRandom random = new SecureRandom();
             byte[] randomBytes = new byte[8];
             random.nextBytes(randomBytes);
             String randomPassword = Base64.getEncoder().encodeToString(randomBytes);
 
+            String email = centername + "@gmail.com";
             String insertSql = "INSERT INTO user (Email, Password, Role) VALUES (?,?,?)";
             preparedStatement = connection.prepareStatement(insertSql);
-            preparedStatement.setString(1, centername + "@gmail.com");
+            preparedStatement.setString(1, email);
             preparedStatement.setString(2, randomPassword);
             preparedStatement.setString(3, "center");
             preparedStatement.executeUpdate();
-            return 1;
+            return new CenterCredintials(email, randomPassword);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,7 +63,7 @@ public class AdminService {
                 connection.close();
             }
         }
-        return 0;
+        return null;
     }
 
     public List<AdminResponse> AdminViewAllUsers() {
@@ -83,24 +85,30 @@ public class AdminService {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int userID = resultSet.getInt("UserID");
-                String StudentName = resultSet.getString("StudentName");
-                String InstructorName = resultSet.getString("InstructorName");
-                int experience = resultSet.getInt("Experience");
+                String userName = null;
+                String userBio = null;
+                String userAffiliation = null;
+                int experience = 0;
                 String role = resultSet.getString("Role");
                 String email = resultSet.getString("Email");
                 String password = resultSet.getString("Password");
 
-                String studentAffiliated = resultSet.getString("StudentAffiliated");
-                String studentBio = resultSet.getString("StudentBio");
-
-                String instructorAffiliated = resultSet.getString("InstructorAffiliated");
-                String instructorBio = resultSet.getString("InstructorBio");
-
                 if (role.equals("student")) {
-                    adminResponses.add(new AdminResponse(userID, StudentName, studentBio, studentAffiliated, experience, role, email, password));
+                    userName = resultSet.getString("StudentName");
+                    userBio = resultSet.getString("StudentBio");
+                    userAffiliation = resultSet.getString("StudentAffiliated");
+                    experience = resultSet.getInt("Experience");
                 } else if (role.equals("instructor")) {
-                    adminResponses.add(new AdminResponse(userID, InstructorName, instructorBio, instructorAffiliated, experience, role, email, password));
+                    userName = resultSet.getString("InstructorName");
+                    userBio = resultSet.getString("InstructorBio");
+                    userAffiliation = resultSet.getString("InstructorAffiliated");
+                    experience = resultSet.getInt("Experience");
+                } else if (role.equals("center")) {
+                    userName = email;
                 }
+
+                // Add the user details to the list
+                adminResponses.add(new AdminResponse(userID, userName, userBio, userAffiliation, experience, role, email, password));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -121,6 +129,7 @@ public class AdminService {
         }
         return adminResponses;
     }
+
 
     public boolean AdminDeleteUser(int userID) {
         Connection connection = null;

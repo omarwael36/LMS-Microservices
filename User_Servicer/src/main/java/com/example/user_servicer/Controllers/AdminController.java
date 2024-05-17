@@ -1,6 +1,7 @@
 package com.example.user_servicer.Controllers;
 
 import com.example.user_servicer.Models.AdminResponse;
+import com.example.user_servicer.Models.CenterCredintials;
 import com.example.user_servicer.Models.User;
 import com.example.user_servicer.Services.AdminService;
 
@@ -24,7 +25,7 @@ public class AdminController {
 
     @POST
     @Path("/AdminGenerateCenterCredentials")
-    public int AdminGenerateCenterCredentials(@QueryParam("CenterName") String CenterName) throws SQLException {
+    public CenterCredintials AdminGenerateCenterCredentials(@QueryParam("CenterName") String CenterName) throws SQLException {
         return adminService.AdminGenerateCenterCredentials(CenterName);
     }
 

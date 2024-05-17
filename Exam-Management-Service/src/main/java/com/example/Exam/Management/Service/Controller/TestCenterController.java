@@ -42,7 +42,6 @@ public class TestCenterController {
         return testCenterService.registerForExam(studentId, examName, studentName, branchName, testCenterName);
     }
 
-
     @GetMapping("/GetStudentsGrades")
     public List<ExamResults> getStudentsGrades(@RequestParam("TestCenterName") String testCenterName) {
         return testCenterService.getStudentsGrades(testCenterName);
