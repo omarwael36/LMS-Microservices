@@ -31,8 +31,8 @@ export class InstructorDashboardComponent {
 
   toggleShowAllCoursesTable() {
     this.showForm = false;
-    this.showEnrollmentRequestsTable = false;
     this.showAllCoursesTable = !this.showAllCoursesTable;
+    this.showEnrollmentRequestsTable = false;
     if (this.showAllCoursesTable) {
       this.fetchAllCourses();
     }
