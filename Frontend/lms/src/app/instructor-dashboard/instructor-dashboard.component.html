@@ -11,9 +11,7 @@
           <button (click)="toggleShowEnrollmentRequests()">Show enrollment requests</button>
         </div>
       </div>
-
       <div class="container">
-
         <!-- Create Course Form -->
         <form class="course-form" *ngIf="showForm" (submit)="createCourse()">
           <div class="form-group">
@@ -40,61 +38,62 @@
         </form>
 
         <!-- Show all courses table -->
-<div class="table-container" *ngIf="showAllCoursesTable">
-  <div class="search-form">
-    <input type="text" [(ngModel)]="searchQuery" placeholder="Search...">
-    <label><input type="radio" [(ngModel)]="searchOption" value="name"> Name</label>
-    <label><input type="radio" [(ngModel)]="searchOption" value="category"> Category</label>
-    <button type="button" (click)="searchCourses(searchQuery, searchOption)">Search</button>
-    <button type="button" (click)="sortCoursesByRating('asc')">Sort by Rating (Asc)</button>
-    <button type="button" (click)="sortCoursesByRating('desc')">Sort by Rating (Desc)</button>
-  </div>
-  
-    
-  </div>
-  <table class="custom-table">
-    <thead>
-      <tr>
-        <th>Course Name</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Category</th>
-        <th>Rating</th>
-        <th>Capacity</th>
-        <th>Enrolled Students</th>
-        <th>Reviews</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let course of courses">
-        <td>{{ course.courseName }}</td>
-        <td>{{ course.courseStartDate }}</td>
-        <td>{{ course.courseEndDate }}</td>
-        <td>{{ course.courseCategory }}</td>
-        <td>{{ course.courseRating }}</td>
-        <td>{{ course.courseCapacity }}</td>
-        <td>{{ course.courseEnrolled }}</td>
-        <td>{{ course.reviews ? course.reviews.length : 0 }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <div class="table-container" *ngIf="showAllCoursesTable">
+          <div class="search-form">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search...">
+            <label><input type="radio" [(ngModel)]="searchOption" value="name"> Name</label>
+            <label><input type="radio" [(ngModel)]="searchOption" value="category"> Category</label>
+            <button type="button" class="table-btn" (click)="searchCourses(searchQuery, searchOption)">Search</button>
+            <button type="button" class="table-btn" (click)="sortCoursesByRating('asc')">Sort by Rating (Asc)</button>
+            <button type="button" class="table-btn" (click)="sortCoursesByRating('desc')">Sort by Rating (Desc)</button>
 
-        <!-- Show enrollment requests table -->
-        <div class="table-container" *ngIf="showEnrollmentRequestsTable">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th>Course Name</th>
-                <th>Student Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Populate this section with enrollment request data -->
-            </tbody>
-          </table>
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Course Name</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Category</th>
+                  <th>Rating</th>
+                  <th>Capacity</th>
+                  <th>Enrolled Students</th>
+                  <th>Reviews</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let course of courses">
+                  <td>{{ course.courseName }}</td>
+                  <td>{{ course.courseStartDate }}</td>
+                  <td>{{ course.courseEndDate }}</td>
+                  <td>{{ course.courseCategory }}</td>
+                  <td>{{ course.courseRating }}</td>
+                  <td>{{ course.courseCapacity }}</td>
+                  <td>{{ course.courseEnrolled }}</td>
+                  <td>{{ course.reviews ? course.reviews.length : 0 }}</td>
+                </tr>
+              </tbody>
+            </table>
         </div>
+      </div>
+      <!-- Show enrollment requests table -->
+      <div class="table-container" *ngIf="showEnrollmentRequestsTable">
+        <table class="custom-table" *ngIf="showEnrollmentRequestsTable">
+          <thead>
+            <tr>
+              <th>Course Name</th>
+              <th>Student Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td>afadsf</td>
+              <td>afadsf</td>
+              <td>afadsf</td>
+            </tr> -->
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
