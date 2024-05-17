@@ -18,6 +18,7 @@ public class ExamDate {
     @MongoId(FieldType.OBJECT_ID)
     private String examId;
     private String examDate;
+    private String branchName;
     private String examTime;
     private int capacity;
     private List<ExamReservation> examReservations;

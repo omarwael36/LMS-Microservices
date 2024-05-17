@@ -25,17 +25,18 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
-      const credentials = {
+      var credentials = {
         email: this.loginForm.value.email, 
         password: this.loginForm.value.password
       };
-
+  
       const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+  
       this.http.post<any>('http://localhost:8080/User_Servicer-1.0-SNAPSHOT/api/user/UserLogin', credentials, { headers }).subscribe(
         (response) => {
           console.log('Login successful:', response);
           if (response) {
+            // Update user data with each login
             this.userService.setUserData(response); 
             this.navigateToDashboard(); 
           } else {
@@ -50,9 +51,10 @@ export class LoginComponent implements OnInit {
       // Form is invalid, handle accordingly (e.g., display error messages)
     }
   }
+  
 
   navigateToDashboard() {
-    const userData = this.userService.getUserData();
+    var userData = this.userService.getUserData();
     if (userData && userData.Role) {
       if (userData.Role === 'instructor') {
         this.router.navigate(['/instructorDashboard']);
@@ -60,7 +62,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/studentDashboard']);
       } else if (userData.Role === 'admin') {
         this.router.navigate(['/adminDashboard']);
-      } else if (userData.Role === 'test center') {
+      } else if (userData.Role === 'center') {
         this.router.navigate(['/testcenterDashboard']);
       } else {
         // Handle other roles

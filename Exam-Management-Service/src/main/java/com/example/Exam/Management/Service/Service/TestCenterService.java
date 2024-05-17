@@ -55,17 +55,16 @@ public class TestCenterService {
     }
 
 
-    public String createExam(CreateExamRequest request, String branchName, String centerName) {
+    public String createExam(CreateExamRequest request, String centerName) {
         request.getExam().setCreatedBy(centerName);
         Exam savedExam = examRepository.save(request.getExam());
 
-        TestCenter testCenter = testCenterRepository.findByBranches_BranchName(branchName);
+        TestCenter testCenter = testCenterRepository.findByBranches_BranchName(request.getExamDates().get(0).getBranchName());
         if (testCenter != null) {
             List<Branch> branches = testCenter.getBranches();
-
             Branch branch = null;
             for (Branch b : branches) {
-                if (b.getBranchName().equals(branchName)) {
+                if (b.getBranchName().equals(request.getExamDates().getFirst().getBranchName())) {
                     branch = b;
                     break;
                 }
@@ -75,14 +74,15 @@ public class TestCenterService {
                 List<ExamDate> examDates = branch.getExamDates();
                 for (ExamDate examDate : request.getExamDates()) {
                     examDate.setIsFull(false);
-                    examDate.setExamReservations(new ArrayList<>()); // Empty list
+                    examDate.setExamReservations(new ArrayList<>());
+                    examDate.setExamId(savedExam.getExamId()); // Associate with saved exam ID
                 }
                 examDates.addAll(request.getExamDates());
                 branch.setExamDates(examDates);
                 testCenterRepository.save(testCenter);
 
                 ExamLogs examLogs = new ExamLogs();
-                examLogs.setName(branchName);
+                examLogs.setName(branch.getBranchName());
                 examLogs.setRole("test center");
                 examLogs.setTimeStamp(LocalDateTime.now());
                 examLogs.setAction("Created exam and associated with exam dates");

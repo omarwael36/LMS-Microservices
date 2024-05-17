@@ -1,4 +1,3 @@
-// src/app/services.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -59,4 +58,11 @@ export class UserService {
     return this.http.get<Course[]>(`http://localhost:8083/api/v1/course/SortCoursesByRating?sortOrder=${sortOrder}&userName=${userName}&userRole=${userRole}`);
   }
 
+  // New method to save test center information
+  saveTestCenterInfo(testCenterInfo: any): Observable<any> {
+    return this.http.post<any>(`http://localhost:8081/api/v1/TestCenter/AddTestCenter`, testCenterInfo);
+  }
+  createExam(examInfo: any, testCenterName: string): Observable<any> {
+    return this.http.post<any>(`http://localhost:8081/api/v1/TestCenter/CreateExam?testCenterName=${testCenterName}`, examInfo);
+  }
 }

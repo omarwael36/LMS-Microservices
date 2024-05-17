@@ -28,8 +28,8 @@ public class TestCenterController {
     }
 
     @PostMapping("/CreateExam")
-    public String createExam(@RequestBody CreateExamRequest request, @RequestParam("branchName") String branchName, @RequestParam ("testCenterName") String testCenterName) {
-        return testCenterService.createExam(request, branchName, testCenterName);
+    public String createExam(@RequestBody CreateExamRequest request, @RequestParam ("testCenterName") String testCenterName) {
+        return testCenterService.createExam(request,testCenterName);
     }
 
     @PostMapping("/SetStudentGrade")
