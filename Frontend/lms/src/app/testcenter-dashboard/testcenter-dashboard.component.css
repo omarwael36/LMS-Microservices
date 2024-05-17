@@ -27,7 +27,6 @@
 
 
 }
-  
 h2{
     color: #fff;
     stroke: black;
@@ -50,26 +49,11 @@ h2{
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
+  }
 
-.container{
-
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.208);
-    width: 60%;
-    height: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.buttons {
-    display: flex;
-}
+  }
   
   .buttons button {
     margin-left: 10px; /* Adjust as needed */
@@ -79,26 +63,134 @@ h2{
     background-color: #007bff; /* Adjust as needed */
     color: #fff; /* Adjust as needed */
     cursor: pointer;
-}
+  }
   
-.buttons button:first-child {
+  .buttons button:first-child {
     margin-left: 0;
+  }
+  
+.container{
+
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.208);
+  width: 60%;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-group {
+  width: 100%; 
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Disable button when form is invalid */
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+.table-container {
+  width: 90%;
+  height: 90%;
+  overflow-y: auto; /* Scrollable body */
 }
 
 .custom-table {
-    width: 80%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.custom-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  z-index: 1; /* Ensure header stays above the table body */
 }
 
 .custom-table th, .custom-table td {
-    padding: 8px;
-    border: 3px solid white;
-  }
-  
-  .custom-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .custom-table td {
-    text-align: center;
+  padding: 8px;
+  border: 3px solid white;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+}
+
+.custom-table td {
+  text-align: center;
+}
+
+.table-btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: beige;
+  font-weight: bold;
+}
+
+.buttons-container{
+  display: flex;
+}
+
+.accept-btn {
+  background-color: #28a745;
+  color: #fff;
+  font-weight: normal;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+  color: #fff;
+  font-weight: normal;
+
+}
+
+.search{
+  display: flex;
+}
+
+.showAllCourses{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

@@ -16,6 +16,9 @@ export class InstructorDashboardComponent {
     this.showForm = !this.showForm;
     this.showAllCoursesTable = false;
     this.showEnrollmentRequestsTable = false;
+    this.showEnrollmentRequestsTable = false;
+
+
   }
 
   toggleShowAllCoursesTable(){

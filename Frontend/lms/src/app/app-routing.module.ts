@@ -8,7 +8,7 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
 import { TestcenterDashboardComponent } from './testcenter-dashboard/testcenter-dashboard.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
   { path: 'adminDashboard', component: AdminDashboardComponent },

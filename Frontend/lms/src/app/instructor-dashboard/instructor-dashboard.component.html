@@ -12,6 +12,8 @@
           </div>
         </div>
 
+        
+
         <div class="container">
 
           <!-- Create Course Form -->
@@ -43,66 +45,82 @@
 
 
           <!-- Show all courses table -->
-          <table class="custom-table" *ngIf="showAllCoursesTable">
-            <thead>
-              <tr>
-                <th>Course Name</th>
-                <th>Duration</th>
-                <th>Category</th>
-                <th>Rating</th>
-                <th>Capacity</th>
-                <th>Enrolled Students</th>
-                <th>Reviews</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Course 1</td>
-                <td>3 months</td>
-                <td>Programming</td>
-                <td>4.5</td>
-                <td>50</td>
-                <td>30</td>
-                <td>List of reviews</td>
-                <td>
-                  <div class="buttons-container">
-                    <button class="table-btn">Search Courses</button>
-                    <button class="table-btn">Sort by Ratings</button>
-                  </div>
-                </td>
-              </tr>
-              <!-- Add more rows as needed -->
-            </tbody>
-
+          <div class="table-container" *ngIf="showAllCoursesTable">
             
 
-          </table>
+            <div class="search-form">
+              <form id="">
+                <div class="radios">
+                  <label> <input type="radio" name="searchOption" value="category"> Search by Category </label>
+                  <label> <input type="radio" name="searchOption" value="name"> Search by Name </label>
+                </div>
+              
+                <div class="search">
+                  <input type="text" name="searchQuery" placeholder="Search">
+                  <button type="submit" class="table-btn" >Search</button>
+                  <button type="button" class="table-btn" (click)="null">Sort by Ratings</button>
+                </div>
+              
+
+              </form>
+    
+            </div>
+
+            
+              <table class="custom-table" *ngIf="showAllCoursesTable">
+                <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                    <th>Capacity</th>
+                    <th>Enrolled Students</th>
+                    <th>Reviews</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr>
+                    <td>Course 1</td>
+                    <td>3 months</td>
+                    <td>Programming</td>
+                    <td>4.5</td>
+                    <td>50</td>
+                    <td>30</td>
+                    <td>List of reviews</td>
+                  </tr> -->
+                </tbody>
+              </table>
+            
+
+          </div>
+          
           
           
           
 
           <!-- Show enrollment requests table -->
-          <table class="custom-table" *ngIf="showEnrollmentRequestsTable">
-            <thead>
-              <tr>
-                <th>Course Name</th>
-                <th>Student Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Course 1</td>
-                <td>Student A</td>
-                <td>
-                  <button class="table-btn accept-btn">Accept</button>
-                  <button class="table-btn reject-btn">Reject</button>
-                </td>
-              </tr>
-              <!-- Add more rows as needed -->
-            </tbody>
-          </table>
+          <div class="table-container" *ngIf="showEnrollmentRequestsTable">
+            <table class="custom-table" *ngIf="showEnrollmentRequestsTable">
+              <thead>
+                <tr>
+                  <th>Course Name</th>
+                  <th>Student Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr>
+                  <td>Course 1</td>
+                  <td>Student A</td>
+                  <td>
+                    <button class="table-btn accept-btn">Accept</button>
+                    <button class="table-btn reject-btn">Reject</button>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
           
           
         </div>

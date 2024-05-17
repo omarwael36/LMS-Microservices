@@ -19,97 +19,131 @@
         <div class="container">
 
             <!-- View all users -->
-            <table class="custom-table" *ngIf="showViewAllUsers">
-                <thead>
-                    <tr>
-                    <th>User Name</th>
-                    <th>User Role</th>
-                    <th>Action</th>
-                    </tr>
-                </thead>
-                <!-- <tbody>
-                    <tr *ngFor="let user of users">
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.role }}</td>
-                    <td><button (click)="removeUser(user)">Remove</button></td>
-                    </tr>
-                </tbody> -->
-                <tbody>
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td><button >Remove</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container" *ngIf="showViewAllUsers">
+                <table class="custom-table" *ngIf="showViewAllUsers">
+                    <thead>
+                        <tr>
+                        <th>User Name</th>
+                        <th>User Role</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <!-- <tbody>
+                        <tr *ngFor="let user of users">
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.role }}</td>
+                        <td><button (click)="removeUser(user)">Remove</button></td>
+                        </tr>
+                    </tbody> -->
+                    <tbody>
+                        <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td><button >Remove</button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
 
             <!-- Review publish request -->
-            <table class="custom-table" *ngIf="showPublishRequests">
-                <thead>
-                    <tr>
-                    <th>Course Name</th>
-                    <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td></td>
-                    <td>
-                        <button class="table-btn accept-btn">Accept</button>
-                        <button class="table-btn reject-btn">Reject</button>
-                    </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container" *ngIf="showPublishRequests">
+                <table class="custom-table" *ngIf="showPublishRequests">
+                    <thead>
+                        <tr>
+                        <th>Course Name</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td></td>
+                        <td>
+                            <button class="table-btn accept-btn">Accept</button>
+                            <button class="table-btn reject-btn">Reject</button>
+                        </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
 
             <!-- remove a course -->
-            <table class="custom-table" *ngIf="showRemoveCourse">
-                <thead>
-                    <tr>
-                    <th>Course Name</th>
-                    <th>Action</th>
-                    </tr>
-                </thead>
-                <!-- <tbody>
-                    <tr *ngFor="let user of users">
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.role }}</td>
-                    <td><button (click)="removeUser(user)">Remove</button></td>
-                    </tr>
-                </tbody> -->
-                <tbody>
-                    <tr>
-                        <td>Course 1</td>
-                        <td>
-                        <button class="table-btn accept-btn">Accept</button>
-                        <button class="table-btn reject-btn">Reject</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container" *ngIf="showRemoveCourse">
+                <table class="custom-table" *ngIf="showRemoveCourse">
+                    <thead>
+                        <tr>
+                        <th>Course Name</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <!-- <tbody>
+                        <tr *ngFor="let user of users">
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.role }}</td>
+                        <td><button (click)="removeUser(user)">Remove</button></td>
+                        </tr>
+                    </tbody> -->
+                    <tbody>
+                        <!-- <tr>
+                            <td>Course 1</td>
+                            <td>
+                            <button class="table-btn accept-btn">Accept</button>
+                            <button class="table-btn reject-btn">Reject</button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
             
             <!-- Generate test center account -->
             <!-- <button >Generate Email & Password</button> -->
-            <table class="custom-table" *ngIf="showAccountGeneration">
-                <thead>
-                    <tr>
-                      <th>Email</th>
-                      <th>Password</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>wady</td>
-                      <td>yaba</td>
-                    </tr>
-                  </tbody>
-            </table>
+            <div class="generateAcc" *ngIf="showAccountGeneration">
+                <form >
+                    <div class="form-group">
+                      <label for="testCenterName">Test Center Name:</label>
+                      <input type="text" id="testCenterName" formControlName="testCenterName" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="showAccountGenerationSecondForm()">Submit</button>
+                  </form>    
+            </div>
+
+            <!-- Generate test center account second form -->
+            <div class="table-container" *ngIf="accountGenerationSecondForm">
+                <table class="custom-table" *ngIf="accountGenerationSecondForm">
+                    <thead>
+                        <tr>
+                          <th>Email</th>
+                          <th>Password</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr></tr>
+                      </tbody>
+                </table>
+            </div>
+
+            
 
             <!-- Show logs -->
-            <table class="custom-table" *ngIf="showLogs">
-
-            </table>
-
+            <div class="table-container" *ngIf="showLogs">
+                <table class="custom-table" *ngIf="showLogs">
+                    <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>timestamp</th>
+                        <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                        <td>ah</td>
+                        <td>bashmohandes</td>
+                        <td>2:58</td>
+                        <td>debugging</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
 
