@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -95,6 +96,27 @@ export class StudentDashboardComponent {
     this.showNearbyTestCentersSecondForm = false;
     this.showRegisterAnExam = false;
     this.showViewExamGrades = !this.showViewExamGrades;
+  }
+
+  // Register an exam
+  exam = {
+    examName: '',
+    testCenterName: '',
+    branchName: ''
+  };
+
+  constructor(private http: HttpClient) {}
+
+  registerForAnExam() {
+    const url = 'http://your-spring-backend-url/api/exams'; // Replace with your backend URL
+    this.http.post(url, this.exam)
+      .subscribe(response => {
+        console.log('Exam registered successfully', response);
+        // Handle success
+      }, error => {
+        console.error('Error registering exam', error);
+        // Handle error
+      });
   }
 
 }

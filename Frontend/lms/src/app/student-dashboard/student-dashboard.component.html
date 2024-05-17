@@ -166,23 +166,22 @@
 
             <!-- Register an exam -->
             <div class="showCreateExams" *ngIf="showRegisterAnExam">
-                <form class="student-form" *ngIf="showRegisterAnExam">
+                <form class="student-form" *ngIf="showRegisterAnExam" (ngSubmit)="registerForAnExam()">
                     <div class="form-group">
                         <label for="examName">Exam Name:</label>
-                        <input type="text" id="examName" name="examName" required>
-                    </div>
+                        <input type="text" id="examName" name="examName" [(ngModel)]="exam.examName" required>
+                        </div>
                     <div class="form-group">
                         <label for="testCenterName">Test Center Name:</label>
-                        <input type="text" id="testCenterName" name="testCenterName" required>
+                        <input type="text" id="testCenterName" name="testCenterName" [(ngModel)]="exam.testCenterName" required>
                     </div>
                     <div class="form-group">
-                        <label for="branchName">Branch Name:</label>
-                        <input type="text" id="branchName" name="branchName" required>
+                    <label for="branchName">Branch Name:</label>
+                    <input type="text" id="branchName" name="branchName" [(ngModel)]="exam.branchName" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" (click)="null">Register</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </form>
             </div>
-
             <!-- View exam grades -->
             <div class="table-container" *ngIf="showViewExamGrades">
                 <table class="custom-table" *ngIf="showViewExamGrades">
@@ -200,6 +199,7 @@
                     </tbody>
                 </table>
             </div>
+            
             
         </div>
 
