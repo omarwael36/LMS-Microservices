@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services';
 import { Course } from '../models/Courses';
+import { User } from '../user.service';
 
 @Component({
   selector: 'app-instructor-dashboard',
@@ -12,15 +13,15 @@ export class InstructorDashboardComponent {
   showForm: boolean = false;
   showAllCoursesTable: boolean = false;
   showEnrollmentRequestsTable: boolean = false;
-  newCourse: any = {}; // Object to store new course data
-  instructorData: any; // Object to store instructor data
+  newCourse: any = {}; 
+  instructorData: any;
   courses: Course[] = [];
   searchQuery: string = '';
   searchOption: string = 'category';
 
-  constructor(private courseService: UserService) {
-    // Assuming you retrieve instructor data from another source
-    this.instructorData = { UserID: 1, Name: "Instructor Name" };
+  constructor(private courseService: UserService, private user: User) {
+  
+    this.instructorData = user.getUserData();
   }
 
   toggleCreateCourseForm() {
@@ -48,16 +49,13 @@ export class InstructorDashboardComponent {
     console.log('Creating course:', this.newCourse);
     // Check if instructor data is available
     if (this.instructorData && this.instructorData.UserID && this.instructorData.Name) {
-      // Add instructor data to the newCourse object
       this.newCourse.instructor = {
         instructorID: this.instructorData.UserID,
         name: this.instructorData.Name
       };
-      // Call the service method to create the course
       this.courseService.addCourse(this.newCourse, this.instructorData.Name).subscribe(
         (response) => {
           console.log('Course created successfully:', response);
-          // Reset newCourse object and close the form
           this.newCourse = {};
           this.toggleCreateCourseForm();
         },

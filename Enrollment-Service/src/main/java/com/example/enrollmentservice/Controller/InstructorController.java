@@ -31,7 +31,7 @@ public class InstructorController {
 
     @GET
     @Path("/GetEnrollRequests")
-    public List<EnrollmentRequest> GetEnrollRequests() throws SQLException {
-        return instructorService.getEnrollRequests();
+    public List<EnrollmentRequest> GetEnrollRequests(@QueryParam("InstructorID") int InstructorID) throws SQLException {
+        return instructorService.getEnrollRequests(InstructorID);
     }
 }

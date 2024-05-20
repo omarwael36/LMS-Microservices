@@ -116,13 +116,17 @@ public class InstructorService implements MessageListener {
         }
     }
 
-    public List<EnrollmentRequest> getEnrollRequests() {
+    public List<EnrollmentRequest> getEnrollRequests(int InstructorID) {
+        String query = "SELECT * FROM enrollment WHERE InstructorID = ?";
         try (Connection connection = DBConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM enrollment");
-             ResultSet resultSet = preparedStatement.executeQuery()) {
-            return EnrollmentRequest.convertResultSetToList(resultSet);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, InstructorID);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                return EnrollmentRequest.convertResultSetToList(resultSet);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 }

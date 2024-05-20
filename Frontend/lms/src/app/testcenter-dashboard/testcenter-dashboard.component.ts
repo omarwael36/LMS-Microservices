@@ -35,17 +35,19 @@ export class TestcenterDashboardComponent implements OnInit {
   examDate: string = "";
   examTime: string = "";
   capacity: number = 0;
-  examDatesList: any[] = []; // New list to store exam dates
+  examDatesList: any[] = [];
 
-  studentsGrades: ExamResults[] = []; // New property to store exam results
+  studentsGrades: ExamResults[] = [];
 
-  constructor(private testCenterService: UserService, private userService: User) {}
+  constructor(private testCenterService: UserService, private userService: User) {
+    const userData = this.userService.getUserData();
+    console.log(userData);
+    if (userData) {
+      this.testCenterName = userData.Name;
+    }
+  }
 
   ngOnInit() {
-    const userData = this.userService.getUserData();
-    if (userData) {
-      this.testCenterName = userData.username;
-    }
     this.getStudentsGrades();
   }
 
